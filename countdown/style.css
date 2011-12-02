@@ -20,3 +20,31 @@
 	font-family: "Verdana";
 	color: red;
 }
+
+/* When using shake, you must specify another theme */
+
+@-webkit-keyframes shake {
+	0% {
+		-webkit-transform: translate(1px, 2px);
+	}
+
+	25% {
+		-webkit-transform: translate(1px, -1px);
+	}
+
+	50% {
+		-webkit-tranform: translate(-2px, -1px);
+	}
+
+	75% {
+		-webkit-transform: translate(-2px, 2px);
+	}
+}
+
+.countdown.shake {
+	-webkit-animation-name: shake;
+	-webkit-animation-duration: 0.1s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	display: inline-block;
+}

@@ -1,0 +1,22 @@
+.countdown.default {
+	border: 1px black solid;
+	background-color: white;
+	width: 310px;
+}
+
+.countdown.default span {
+	font-size: 48pt;
+	font-family: "Courier"
+}
+
+.countdown.red {
+	border: 3px red solid;
+	background-color: #FFCCCC;
+	width: 310px;
+}
+
+.countdown.red span {
+	font-size: 48pt;
+	font-family: "Verdana";
+	color: red;
+}

@@ -24,7 +24,7 @@
 /* When using shake, you must specify another theme */
 
 @-webkit-keyframes shake {
-	0% {
+	0%, 100% {
 		-webkit-transform: translate(1px, 2px);
 	}
 

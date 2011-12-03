@@ -36,5 +36,5 @@ function init_countdown() {
 			clearInterval(interval);
 		}
 	}, 1000);
-	call_countdown.call(that, time)
+	call_countdown.call(this, time)
 }

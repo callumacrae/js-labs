@@ -46,5 +46,9 @@
 	-webkit-animation-duration: 0.1s;
 	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-timing-function: linear;
-	display: inline-block;
+	-webkit-animation-play-state: running;
+}
+
+.countdown.shake:hover {
+	-webkit-animation-play-state: paused;
 }

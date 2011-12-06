@@ -1,6 +1,5 @@
 var cursor = document.getElementById('cursor');
-cursor.left = 0;
-cursor.top = 0;
+cursor.left = cursor.top = 0;
 
 document.addEventListener('keydown', function(e) {
 	if (e.keyCode === 37) {
@@ -29,5 +28,34 @@ document.addEventListener('keydown', function(e) {
 		}
 	}
 
-	e.preventDefault();
+	(e.keyCode > 36 && e.keyCode < 41) && e.preventDefault();
 });
+
+var monster = document.getElementById('monster');
+monster.left = monster.top = 400;
+var interval = setInterval(function() {
+	if (cursor.left < monster.left) {
+		// Move monster left
+		monster.left -= 50;
+		monster.style.left = monster.left + 'px';
+	} else if (cursor.left > monster.left) {
+		// Move monster right
+		monster.left += 50;
+		monster.style.left = monster.left + 'px';
+	}
+
+	if (cursor.top < monster.top) {
+		// Move monster up
+		monster.top -= 50;
+		monster.style.top = monster.top + 'px';
+	} else if (cursor.top > monster.top) {
+		// Move monster down
+		monster.top += 50;
+		monster.style.top = monster.top + 'px';
+	}
+
+	if (monster.top === cursor.top && monster.left === cursor.left) {
+		alert('Game over.');
+		clearInterval(interval);
+	}
+}, 500);

@@ -58,4 +58,4 @@ var interval = setInterval(function() {
 		alert('Game over.');
 		clearInterval(interval);
 	}
-}, 500);
+}, 250);

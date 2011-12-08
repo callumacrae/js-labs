@@ -22,8 +22,10 @@ document.addEventListener('keydown', function(e) {
 		}
 	} else if (e.keyCode === 40) {
 		// down
-		cursor.top += 50;
-		cursor.style.top = cursor.top + 'px';
+		if (cursor.top < 550) {
+			cursor.top += 50;
+			cursor.style.top = cursor.top + 'px';
+		}
 	}
 
 	(e.keyCode > 36 && e.keyCode < 41) && e.preventDefault();

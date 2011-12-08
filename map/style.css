@@ -25,7 +25,7 @@
 	border: 1px black solid;
 	position: relative;
 	width: 50px;
-	height: 200px;
+	height: 300px;
 	left: 200px;
-	top: 50px;
+	top: -50px;
 }

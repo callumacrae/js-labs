@@ -4,7 +4,7 @@ cursor.left = cursor.top = 0;
 document.addEventListener('keydown', function(e) {
 	if (e.keyCode === 37) {
 		// left
-		if (((cursor.top <= 50 || cursor.top >= 300) || cursor.left !== 250) && cursor.left > 49) {
+		if ((cursor.top >= 300 || cursor.left !== 250) && cursor.left > 49) {
 			cursor.left -= 50;
 			cursor.style.left = cursor.left + 'px';
 		}
@@ -16,16 +16,14 @@ document.addEventListener('keydown', function(e) {
 		}
 	} else if (e.keyCode === 39) {
 		// right
-		if (((cursor.top <= 50 || cursor.top >= 300) || cursor.left !== 150) && cursor.left < 750) {
+		if ((cursor.top >= 300 || cursor.left !== 150) && cursor.left < 750) {
 			cursor.left += 50;
 			cursor.style.left = cursor.left + 'px';
 		}
 	} else if (e.keyCode === 40) {
 		// down
-		if ((cursor.top !== 50 || cursor.left !== 200) && cursor.top < 550) {
-			cursor.top += 50;
-			cursor.style.top = cursor.top + 'px';
-		}
+		cursor.top += 50;
+		cursor.style.top = cursor.top + 'px';
 	}
 
 	(e.keyCode > 36 && e.keyCode < 41) && e.preventDefault();
@@ -55,7 +53,7 @@ var interval = setInterval(function() {
 	}
 
 	if (monster.top === cursor.top && monster.left === cursor.left) {
-		alert('Game over.');
 		clearInterval(interval);
+		alert('Game over.');
 	}
 }, 250);

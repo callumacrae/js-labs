@@ -5,26 +5,22 @@ document.addEventListener('keydown', function(e) {
 	if (e.keyCode === 37) {
 		// left
 		if ((cursor.top >= 300 || cursor.left !== 250) && cursor.left > 49) {
-			cursor.left -= 50;
-			cursor.style.left = cursor.left + 'px';
+			cursor.style.left = (cursor.left -= 50) + 'px';
 		}
 	} else if (e.keyCode === 38) {
 		// up
 		if ((cursor.top !== 300 || cursor.left !== 200) && cursor.top > 49) {
-			cursor.top -= 50;
-			cursor.style.top = cursor.top + 'px';
+			cursor.style.top = (cursor.top -= 50) + 'px';
 		}
 	} else if (e.keyCode === 39) {
 		// right
 		if ((cursor.top >= 300 || cursor.left !== 150) && cursor.left < 750) {
-			cursor.left += 50;
-			cursor.style.left = cursor.left + 'px';
+			cursor.style.left = (cursor.left += 50) + 'px';
 		}
 	} else if (e.keyCode === 40) {
 		// down
 		if (cursor.top < 550) {
-			cursor.top += 50;
-			cursor.style.top = cursor.top + 'px';
+			cursor.style.top = (cursor.top += 50) + 'px';
 		}
 	}
 
@@ -34,24 +30,12 @@ document.addEventListener('keydown', function(e) {
 var monster = document.getElementById('monster');
 monster.left = monster.top = 400;
 var interval = setInterval(function() {
-	if (cursor.left < monster.left) {
-		// Move monster left
-		monster.left -= 50;
-		monster.style.left = monster.left + 'px';
-	} else if (cursor.left > monster.left) {
-		// Move monster right
-		monster.left += 50;
-		monster.style.left = monster.left + 'px';
+	if (cursor.left !== monster.left) {
+		monster.style.left = (monster.left += (cursor.left > monster.left) ? 50 : -50) + 'px';
 	}
 
-	if (cursor.top < monster.top) {
-		// Move monster up
-		monster.top -= 50;
-		monster.style.top = monster.top + 'px';
-	} else if (cursor.top > monster.top) {
-		// Move monster down
-		monster.top += 50;
-		monster.style.top = monster.top + 'px';
+	if (cursor.top !== monster.top) {
+		monster.style.top = (monster.top += (cursor.top > monster.top) ? 50 : -50) + 'px';
 	}
 
 	if (monster.top === cursor.top && monster.left === cursor.left) {

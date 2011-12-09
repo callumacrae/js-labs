@@ -36,9 +36,7 @@ var interval = setInterval(function() {
 
 	if (cursor.top !== monster.top) {
 		monster.style.top = (monster.top += (cursor.top > monster.top) ? 50 : -50) + 'px';
-	}
-
-	if (monster.top === cursor.top && monster.left === cursor.left) {
+	} else if (monster.left === cursor.left) {
 		clearInterval(interval);
 		alert('Game over.');
 	}

@@ -13,11 +13,8 @@ function keydownFn(e) {
 	}
 	(e.keyCode > 36 && e.keyCode < 41) && e.preventDefault();
 }
-if (document.addEventListener) {
-	document.addEventListener('keydown', keydownFn);
-} else {
-	document.attachEvent('onkeydown', keydownFn);
-}
+var a = document.addEventListener;
+document[a ? 'addEventListener' : 'attachEvent']((a ? '' : 'on') + 'keydown', keydownFn);
 
 var interval = setInterval(function monsterInterval() {
 	if (cursor.left !== monster.left) {

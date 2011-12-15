@@ -26,7 +26,7 @@ function init_countdown() {
 	}
 
 	var time = new Date(this.innerHTML);
-	if (time.toString() === 'Invalid Date') {
+	if (isNaN(time.getTime())) {
 		throw new TypeError('Invalid date specified');
 	}
 

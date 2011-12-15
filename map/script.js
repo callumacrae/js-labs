@@ -22,7 +22,17 @@ var interval = setInterval(function() {
 		monster.style.top = (monster.top += (cursor.top > monster.top) ? 50 : -50) + 'px';
 	} else if (monster.left === cursor.left) {
 		clearInterval(interval);
-		alert('Game over.');
+		clearInterval(time);
+		alert('Game over at ' +timeDiv.innerHTML + '.');
 	}
 }, 250), monster = document.getElementById('monster');
 monster.left = monster.top = 400;
+
+function f(t) {
+	return (t < 10) ? '0' + Math.floor(t) : Math.floor(t);
+}
+
+var d, t = new Date().getTime(), time = setInterval(function() {
+	d = (Date.now() - t);
+	timeDiv.innerHTML = f(d / 60000) + ':' + f((d / 1000) % 60) + ':' + f((d % 1000) / 10);
+}, 1), timeDiv = document.getElementById('time');

@@ -29,7 +29,7 @@ var interval = setInterval(function monsterInterval() {
 }, 250), monster = document.getElementById('monster');
 monster.left = monster.top = 400;
 
-var d, t = new Date().getTime(), time = setInterval(function timeInterval() {
+var d, t = Date.now(), time = setInterval(function timeInterval() {
 	function f(t) {
 		return ((t < 10) ? '0' : '') + Math.floor(t);
 	}

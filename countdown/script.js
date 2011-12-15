@@ -5,7 +5,7 @@ for (var i = 0; i < div.length; i++) {
 
 function call_countdown(time) {
 	function r(num) {
-		return (num < 10) ? '0' + num : num;
+		return ((num < 10) ? '0' : '') + num;
 	}
 
 	var rtime = Math.round((time.getTime() - Date.now()) / 1000);

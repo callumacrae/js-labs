@@ -1,7 +1,7 @@
 var cursor = document.getElementById('cursor');
 cursor.left = cursor.top = 0;
 
-document.addEventListener('keydown', function(e) {
+function keydownFn(e) {
 	if (e.keyCode === 37 && (cursor.top >= 300 || cursor.left !== 250) && cursor.left > 49) {
 		cursor.style.left = (cursor.left -= 50) + 'px'; // left
 	} else if (e.keyCode === 38 && (cursor.top !== 300 || cursor.left !== 200) && cursor.top > 49) {
@@ -12,9 +12,14 @@ document.addEventListener('keydown', function(e) {
 		cursor.style.top = (cursor.top += 50) + 'px'; //down
 	}
 	(e.keyCode > 36 && e.keyCode < 41) && e.preventDefault();
-});
+}
+if (document.addEventListener) {
+	document.addEventListener('keydown', keydownFn);
+} else {
+	document.attachEvent('onkeydown', keydownFn);
+}
 
-var interval = setInterval(function() {
+var interval = setInterval(function monsterInterval() {
 	if (cursor.left !== monster.left) {
 		monster.style.left = (monster.left += (cursor.left > monster.left) ? 50 : -50) + 'px';
 	}
@@ -28,7 +33,7 @@ var interval = setInterval(function() {
 }, 250), monster = document.getElementById('monster');
 monster.left = monster.top = 400;
 
-var d, t = new Date().getTime(), time = setInterval(function() {
+var d, t = new Date().getTime(), time = setInterval(function timeInterval() {
 	function f(t) {
 		return (t < 10) ? '0' + Math.floor(t) : Math.floor(t);
 	}

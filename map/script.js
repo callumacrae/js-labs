@@ -26,8 +26,7 @@ var interval = setInterval(function monsterInterval() {
 	if (cursor.top !== monster.top) {
 		monster.style.top = (monster.top += (cursor.top > monster.top) ? 50 : -50) + 'px';
 	} else if (monster.left === cursor.left) {
-		clearInterval(interval);
-		clearInterval(time);
+		clearInterval(interval) || clearInterval(time);
 		alert('Game over at ' + timeDiv.innerHTML + '.');
 	}
 }, 250), monster = document.getElementById('monster');

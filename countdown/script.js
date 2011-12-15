@@ -10,8 +10,7 @@ function call_countdown(time) {
 
 	var rtime = Math.round((time.getTime() - Date.now()) / 1000);
 	if (rtime < 1) {
-		this.getElementsByClassName('seconds')[0].innerHTML = '00';
-		return true;
+		return !(this.getElementsByClassName('seconds')[0].innerHTML = '00');
 	}
 
 	this.getElementsByClassName('hours')[0].innerHTML = r(Math.floor(rtime / 3600));

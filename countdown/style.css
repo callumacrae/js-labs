@@ -21,6 +21,30 @@
 	color: red;
 }
 
+.countdown.blue {
+	border: 3px blue solid;
+	background-color: #CCCCFF;
+	width: 310px;
+}
+
+.countdown.blue span {
+	font-size: 48pt;
+	font-family: "Verdana";
+	color: blue;
+}
+
+.countdown.green {
+	border: 3px green solid;
+	background-color: #CCFFCC;
+	width: 310px;
+}
+
+.countdown.green span {
+	font-size: 48pt;
+	font-family: "Verdana";
+	color: green;
+}
+
 /* When using shake, you must specify another theme */
 
 @-webkit-keyframes shake {

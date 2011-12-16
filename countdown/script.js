@@ -5,8 +5,8 @@ for (var i = 0; i < div.length; i++) {
 			this.className += ' default';
 		}
 
-		var time = new Date(this.innerHTML);
-		if (isNaN(time.getTime())) {
+		var time = new Date(this.innerHTML).getTime();
+		if (isNaN(time)) {
 			throw new TypeError('Invalid date specified');
 		}
 
@@ -25,7 +25,7 @@ function call_countdown(time) {
 		return ((num < 10) ? '0' : '') + num;
 	}
 
-	var rtime = Math.round((time.getTime() - Date.now()) / 1000);
+	var rtime = Math.round((time - Date.now()) / 1000);
 	if (rtime < 1) {
 		return !(this.getElementsByClassName('seconds')[0].innerHTML = '00');
 	}

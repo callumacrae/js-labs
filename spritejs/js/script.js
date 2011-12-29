@@ -7,12 +7,12 @@ scene.loadImages(['images/monkey.png', 'images/platform.png'], function() {
     var monkey = scene.Sprite('images/monkey.png');
 	monkey.move(100, 100).update();
 
-	monkey.yv = 15;
+	monkey.yv = 8;
 	monkey.xv = 0;
 	setInterval(function() {
 		if ((monkey.y > 300 || monkey.collidesWithArray(platforms)) && monkey.yv >= 0) {
 			monkey.yv = 0;
-		} else if (monkey.yv < 15) {
+		} else if (monkey.yv < 8) {
 			monkey.yv++;
 		}
 
@@ -23,7 +23,7 @@ scene.loadImages(['images/monkey.png', 'images/platform.png'], function() {
 		}
 
 		monkey.applyVelocity().update();
-	}, 20);
+	}, 10);
 
 	var platforms = sjs.List();
 	for (var i = 0, sprite; i < 5; i++) {

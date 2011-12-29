@@ -10,7 +10,7 @@ scene.loadImages(['images/monkey.png', 'images/platform.png'], function() {
 	monkey.yv = 15;
 	monkey.xv = 0;
 	setInterval(function() {
-		if ((monkey.y > 300 || monkey.collidesWith(platform)) && monkey.yv >= 0) {
+		if ((monkey.y > 300 || monkey.collidesWithArray(platforms)) && monkey.yv >= 0) {
 			monkey.yv = 0;
 		} else if (monkey.yv < 15) {
 			monkey.yv++;
@@ -25,8 +25,12 @@ scene.loadImages(['images/monkey.png', 'images/platform.png'], function() {
 		monkey.applyVelocity().update();
 	}, 20);
 
-	var platform = scene.Sprite('images/platform.png');
-	platform.position(200, 250).update();
+	var platforms = sjs.List();
+	for (var i = 0, sprite; i < 5; i++) {
+		sprite = scene.Sprite('images/platform.png');
+		platforms.add(sprite);
+		sprite.position(Math.random() * 300, Math.random() * 300).update();
+	}
 
 
 	document.addEventListener('keydown', function(e) {
